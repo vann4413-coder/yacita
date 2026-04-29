@@ -1,0 +1,12 @@
+node_modules/
+.git/
+*.log
+*.env
+.env*
+!.env.example
+google-service-account.json
+*.p12
+*.mobileprovision
+*.keystore
+store/
+scripts/

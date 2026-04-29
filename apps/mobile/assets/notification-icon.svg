@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <!-- Notification icon must be white/transparent for Android -->
+  <circle cx="48" cy="48" r="40" fill="white"/>
+  <text
+    x="48"
+    y="64"
+    font-family="Arial Black, sans-serif"
+    font-size="56"
+    font-weight="800"
+    fill="#1D9E75"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >Y</text>
+</svg>

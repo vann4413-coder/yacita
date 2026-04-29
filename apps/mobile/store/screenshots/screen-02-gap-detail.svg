@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1290 2796" width="1290" height="2796">
+  <defs>
+    <linearGradient id="photobg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#1D9E75" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#064033" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1290" height="2796" fill="#f9fffe"/>
+
+  <!-- Photo hero -->
+  <rect width="1290" height="700" fill="#1D9E75" opacity="0.35"/>
+  <text x="645" y="360" font-family="Arial, sans-serif" font-size="160"
+    text-anchor="middle" dominant-baseline="middle">🏥</text>
+  <rect width="1290" height="700" fill="url(#photobg)"/>
+
+  <!-- Back button -->
+  <circle cx="80" cy="140" r="44" fill="white" opacity="0.9"/>
+  <text x="80" y="150" font-family="Arial, sans-serif" font-size="40"
+    text-anchor="middle" dominant-baseline="middle" fill="#064033">←</text>
+
+  <!-- Urgency badge on photo -->
+  <rect x="60" y="580" width="220" height="56" rx="28" fill="#D85A30"/>
+  <text x="170" y="614" font-family="Arial, sans-serif" font-size="28"
+    font-weight="700" fill="white" text-anchor="middle">⚡ Hoy 17:00</text>
+
+  <!-- Content card -->
+  <rect x="0" y="660" width="1290" height="2136" rx="40" fill="white"/>
+
+  <!-- Clinic name + distance -->
+  <text x="80" y="780" font-family="Arial Black, sans-serif" font-size="52"
+    font-weight="800" fill="#064033">FisioGram Madrid</text>
+  <text x="80" y="840" font-family="Arial, sans-serif" font-size="32"
+    fill="#6b7280">Fisioterapia · 60 min · A 0,8 km</text>
+
+  <!-- Stars -->
+  <text x="80" y="900" font-family="Arial, sans-serif" font-size="36" fill="#f59e0b">★★★★★</text>
+  <text x="300" y="900" font-family="Arial, sans-serif" font-size="32" fill="#6b7280">(48 reseñas)</text>
+
+  <!-- Divider -->
+  <rect x="80" y="930" width="1130" height="2" fill="#e5e7eb"/>
+
+  <!-- Price block -->
+  <text x="80" y="1010" font-family="Arial, sans-serif" font-size="32"
+    fill="#9ca3af" text-decoration="line-through">Precio habitual: 50,00€</text>
+  <text x="80" y="1090" font-family="Arial Black, sans-serif" font-size="80"
+    font-weight="900" fill="#D85A30">35,00€</text>
+  <rect x="460" y="1048" width="160" height="56" rx="28" fill="#1D9E75" opacity="0.15"/>
+  <text x="540" y="1082" font-family="Arial, sans-serif" font-size="28"
+    font-weight="700" fill="#1D9E75" text-anchor="middle">Ahorras 15€</text>
+
+  <!-- Description -->
+  <text x="80" y="1180" font-family="Arial Black, sans-serif" font-size="36"
+    font-weight="700" fill="#064033">Sobre la clínica</text>
+  <text x="80" y="1230" font-family="Arial, sans-serif" font-size="30"
+    fill="#6b7280">Especialistas en fisioterapia deportiva y</text>
+  <text x="80" y="1274" font-family="Arial, sans-serif" font-size="30"
+    fill="#6b7280">rehabilitación postoperatoria. 10 años</text>
+  <text x="80" y="1318" font-family="Arial, sans-serif" font-size="30"
+    fill="#6b7280">de experiencia en Madrid centro.</text>
+
+  <!-- Address -->
+  <rect x="80" y="1360" width="1130" height="2" fill="#e5e7eb"/>
+  <text x="80" y="1430" font-family="Arial, sans-serif" font-size="36">📍</text>
+  <text x="140" y="1430" font-family="Arial, sans-serif" font-size="30"
+    fill="#6b7280">Calle Gran Vía 42, Madrid</text>
+
+  <!-- CTA button -->
+  <rect x="80" y="2560" width="1130" height="120" rx="60" fill="#D85A30"/>
+  <text x="645" y="2628" font-family="Arial Black, sans-serif" font-size="48"
+    font-weight="800" fill="white" text-anchor="middle">Reservar esta cita →</text>
+
+  <!-- Bottom caption -->
+  <rect width="1290" height="220" y="2556" fill="#064033" opacity="0"/>
+  <rect x="495" y="2750" width="300" height="8" rx="4" fill="#9ca3af" opacity="0.4"/>
+
+  <!-- Bottom promo label -->
+  <rect width="1290" height="240" y="2556" fill="#064033"/>
+  <text x="645" y="2660" font-family="Arial Black, sans-serif" font-size="60"
+    font-weight="800" fill="white" text-anchor="middle">Reserva en 2 minutos</text>
+  <text x="645" y="2730" font-family="Arial, sans-serif" font-size="36"
+    fill="#A0D9C4" text-anchor="middle">Sin llamadas · Sin formularios · Sin esperas</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1284 2778" width="1284" height="2778">
+  <!-- Background — bgdark -->
+  <rect width="1284" height="2778" fill="#064033"/>
+
+  <!-- Wordmark centered -->
+  <text
+    x="642"
+    y="1320"
+    font-family="'Plus Jakarta Sans', 'Arial Black', sans-serif"
+    font-size="200"
+    font-weight="800"
+    fill="#FFFFFF"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    letter-spacing="-4"
+  >Yacita</text>
+
+  <!-- Tagline -->
+  <text
+    x="642"
+    y="1480"
+    font-family="Inter, Arial, sans-serif"
+    font-size="60"
+    font-weight="400"
+    fill="#A0D9C4"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >Citas de última hora</text>
+
+  <!-- Primary Y mark above wordmark -->
+  <text
+    x="642"
+    y="1120"
+    font-family="'Plus Jakarta Sans', 'Arial Black', sans-serif"
+    font-size="160"
+    font-weight="800"
+    fill="#1D9E75"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >Y</text>
+  <circle cx="736" cy="1170" r="20" fill="#D85A30"/>
+</svg>

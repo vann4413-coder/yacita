@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Adaptive icon foreground — safe zone is center 66% (676x676) -->
+  <!-- No background here — backgroundColor in app.json handles it (#064033) -->
+
+  <!-- Y letterform centered in safe zone -->
+  <text
+    x="512"
+    y="560"
+    font-family="'Plus Jakarta Sans', 'Arial Black', sans-serif"
+    font-size="520"
+    font-weight="800"
+    fill="#1D9E75"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >Y</text>
+
+  <!-- Orange dot accent -->
+  <circle cx="700" cy="700" r="72" fill="#D85A30"/>
+</svg>

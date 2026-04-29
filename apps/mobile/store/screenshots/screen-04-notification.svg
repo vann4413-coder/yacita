@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1290 2796" width="1290" height="2796">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#064033"/>
+      <stop offset="60%"  stop-color="#0d7a5f"/>
+      <stop offset="100%" stop-color="#064033"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background — blurred home screen look -->
+  <rect width="1290" height="2796" fill="url(#bg)"/>
+
+  <!-- Wallpaper grid (abstract blobs) -->
+  <circle cx="200"  cy="600"  r="300" fill="#1D9E75" opacity="0.15"/>
+  <circle cx="1100" cy="400"  r="400" fill="#A0D9C4"  opacity="0.08"/>
+  <circle cx="300"  cy="2200" r="350" fill="#1D9E75"  opacity="0.12"/>
+
+  <!-- Status bar -->
+  <text x="80"  y="80" font-family="Arial, sans-serif" font-size="36" fill="white">9:41</text>
+  <text x="1210" y="80" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="end">●●●</text>
+
+  <!-- Notification card — large, prominent -->
+  <rect x="60" y="180" width="1170" height="280" rx="32" fill="white" opacity="0.95"/>
+
+  <!-- App icon inside notif -->
+  <rect x="96" y="216" width="80" height="80" rx="20" fill="#064033"/>
+  <text x="136" y="268" font-family="Arial Black, sans-serif" font-size="44"
+    font-weight="800" fill="#1D9E75" text-anchor="middle" dominant-baseline="middle">Y</text>
+
+  <!-- Notif text -->
+  <text x="200" y="266" font-family="Arial, sans-serif" font-size="28"
+    font-weight="700" fill="#064033">Yacita · Ahora</text>
+  <text x="200" y="308" font-family="Arial Black, sans-serif" font-size="32"
+    font-weight="800" fill="#064033">Nuevo hueco cerca 📍</text>
+  <text x="200" y="350" font-family="Arial, sans-serif" font-size="28"
+    fill="#6b7280">FisioGram Madrid · Hoy 17:00 · −30%</text>
+  <text x="200" y="392" font-family="Arial, sans-serif" font-size="26"
+    fill="#1D9E75">A solo 0,8 km de ti</text>
+  <text x="200" y="428" font-family="Arial, sans-serif" font-size="24"
+    fill="#9ca3af">Solo quedan 2 plazas</text>
+
+  <!-- Second notification -->
+  <rect x="60" y="490" width="1170" height="200" rx="32" fill="white" opacity="0.90"/>
+  <rect x="96" y="522" width="72" height="72" rx="18" fill="#064033"/>
+  <text x="132" y="568" font-family="Arial Black, sans-serif" font-size="40"
+    font-weight="800" fill="#1D9E75" text-anchor="middle" dominant-baseline="middle">Y</text>
+  <text x="190" y="570" font-family="Arial, sans-serif" font-size="26"
+    font-weight="700" fill="#064033">Yacita · hace 8 min</text>
+  <text x="190" y="610" font-family="Arial Black, sans-serif" font-size="30"
+    font-weight="800" fill="#064033">Tu cita es en 1 hora ⏰</text>
+  <text x="190" y="650" font-family="Arial, sans-serif" font-size="26"
+    fill="#6b7280">FisioGram Madrid · 16:00 – 17:00</text>
+  <text x="190" y="676" font-family="Arial, sans-serif" font-size="24"
+    fill="#9ca3af">Calle Gran Vía 42, Madrid</text>
+
+  <!-- Bottom caption -->
+  <rect width="1290" height="240" y="2556" fill="#064033"/>
+  <text x="645" y="2660" font-family="Arial Black, sans-serif" font-size="60"
+    font-weight="800" fill="white" text-anchor="middle">Alertas en tiempo real</text>
+  <text x="645" y="2730" font-family="Arial, sans-serif" font-size="36"
+    fill="#A0D9C4" text-anchor="middle">Sé el primero cuando aparezca un hueco cercano</text>
+
+  <rect x="495" y="2750" width="300" height="8" rx="4" fill="white" opacity="0.3"/>
+</svg>

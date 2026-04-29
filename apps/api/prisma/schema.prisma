@@ -1,0 +1,161 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_URL")
+  extensions = [postgis(schema: "extensions"), pg_trgm(schema: "extensions")]
+}
+
+// ─────────────────────────────────────────
+// Enums
+// ─────────────────────────────────────────
+
+enum GapStatus {
+  AVAILABLE
+  BOOKED
+  CANCELLED
+  COMPLETED
+}
+
+enum BookingStatus {
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+enum Plan {
+  BASIC
+  PRO
+}
+
+enum SubStatus {
+  ACTIVE
+  PAST_DUE
+  CANCELLED
+}
+
+enum UserRole {
+  PATIENT
+  CLINIC_OWNER
+  ADMIN
+}
+
+// ─────────────────────────────────────────
+// Models
+// ─────────────────────────────────────────
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  avatar       String?
+  lat          Float?
+  lng          Float?
+  pushToken    String?
+  role         UserRole  @default(PATIENT)
+  bookings     Booking[]
+  clinics      Clinic[]  @relation("ClinicOwner")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([email])
+  @@map("users")
+}
+
+model Clinic {
+  id           String        @id @default(cuid())
+  name         String
+  address      String
+  lat          Float
+  lng          Float
+  photos       String[]
+  services     String[]
+  description  String?
+  ownerId      String
+  owner        User          @relation("ClinicOwner", fields: [ownerId], references: [id])
+  gaps         Gap[]
+  subscription Subscription?
+  verified     Boolean       @default(false)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([ownerId])
+  @@index([lat, lng])
+  @@map("clinics")
+}
+
+model Gap {
+  id            String    @id @default(cuid())
+  clinicId      String
+  clinic        Clinic    @relation(fields: [clinicId], references: [id], onDelete: Cascade)
+  datetime      DateTime
+  durationMins  Int
+  service       String
+  stdPrice      Float
+  discountPrice Float
+  maxBookings   Int       @default(1)
+  status        GapStatus @default(AVAILABLE)
+  bookings      Booking[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([clinicId])
+  @@index([datetime])
+  @@index([status])
+  @@index([service])
+  @@map("gaps")
+}
+
+model Booking {
+  id        String        @id @default(cuid())
+  gapId     String
+  gap       Gap           @relation(fields: [gapId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  status    BookingStatus @default(CONFIRMED)
+  note      String?
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@unique([gapId, userId])
+  @@index([userId])
+  @@index([gapId])
+  @@map("bookings")
+}
+
+model Subscription {
+  id               String   @id @default(cuid())
+  clinicId         String   @unique
+  clinic           Clinic   @relation(fields: [clinicId], references: [id], onDelete: Cascade)
+  stripeCustomerId String   @unique
+  stripeSubId      String   @unique
+  plan             Plan     @default(BASIC)
+  status           SubStatus @default(ACTIVE)
+  currentPeriodEnd DateTime
+  cancelAtEnd      Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([stripeCustomerId])
+  @@index([stripeSubId])
+  @@map("subscriptions")
+}
+
+model PushNotification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  body      String
+  data      Json?
+  sent      Boolean  @default(false)
+  sentAt    DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([userId, sent])
+  @@map("push_notifications")
+}

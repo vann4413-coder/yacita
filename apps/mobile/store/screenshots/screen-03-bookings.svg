@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1290 2796" width="1290" height="2796">
+  <rect width="1290" height="2796" fill="#f9fffe"/>
+
+  <!-- Header -->
+  <rect width="1290" height="260" fill="#064033"/>
+  <text x="80" y="200" font-family="Arial Black, sans-serif" font-size="64"
+    font-weight="800" fill="white">Mis reservas</text>
+
+  <!-- Upcoming label -->
+  <text x="80" y="320" font-family="Arial Black, sans-serif" font-size="36"
+    fill="#064033">Próximas</text>
+
+  <!-- Booking card 1 — CONFIRMED -->
+  <rect x="60" y="350" width="1170" height="220" rx="24" fill="white"/>
+  <!-- Green accent bar -->
+  <rect x="60" y="350" width="12" height="220" rx="6" fill="#1D9E75"/>
+  <!-- Status pill -->
+  <rect x="1080" y="374" width="130" height="40" rx="20" fill="#1D9E75" opacity="0.15"/>
+  <text x="1145" y="399" font-family="Arial, sans-serif" font-size="22"
+    font-weight="700" fill="#1D9E75" text-anchor="middle">Confirmada</text>
+  <!-- Content -->
+  <text x="100" y="410" font-family="Arial Black, sans-serif" font-size="38"
+    font-weight="800" fill="#064033">FisioGram Madrid</text>
+  <text x="100" y="458" font-family="Arial, sans-serif" font-size="30"
+    fill="#6b7280">Fisioterapia · 60 min</text>
+  <text x="100" y="498" font-family="Arial, sans-serif" font-size="28"
+    fill="#1D9E75" font-weight="600">📅 Hoy, 17:00 — 18:00</text>
+  <text x="100" y="538" font-family="Arial, sans-serif" font-size="26"
+    fill="#9ca3af">📍 Calle Gran Vía 42, Madrid</text>
+
+  <!-- Booking card 2 — COMPLETED -->
+  <rect x="60" y="600" width="1170" height="220" rx="24" fill="white"/>
+  <rect x="60" y="600" width="12" height="220" rx="6" fill="#6b7280"/>
+  <rect x="1064" y="624" width="150" height="40" rx="20" fill="#f3f4f6"/>
+  <text x="1139" y="649" font-family="Arial, sans-serif" font-size="22"
+    font-weight="700" fill="#6b7280" text-anchor="middle">Completada</text>
+  <text x="100" y="660" font-family="Arial Black, sans-serif" font-size="38"
+    font-weight="800" fill="#064033">Centro Bienestar Sol</text>
+  <text x="100" y="708" font-family="Arial, sans-serif" font-size="30"
+    fill="#6b7280">Masaje · 45 min</text>
+  <text x="100" y="748" font-family="Arial, sans-serif" font-size="28"
+    fill="#9ca3af">📅 Ayer, 10:00 — 10:45</text>
+  <text x="100" y="788" font-family="Arial, sans-serif" font-size="26"
+    fill="#9ca3af">📍 Calle Fuencarral 88, Madrid</text>
+
+  <!-- History label -->
+  <text x="80" y="880" font-family="Arial Black, sans-serif" font-size="36"
+    fill="#064033">Historial</text>
+
+  <!-- Booking card 3 -->
+  <rect x="60" y="910" width="1170" height="220" rx="24" fill="white"/>
+  <rect x="60" y="910" width="12" height="220" rx="6" fill="#6b7280"/>
+  <rect x="1064" y="934" width="150" height="40" rx="20" fill="#f3f4f6"/>
+  <text x="1139" y="959" font-family="Arial, sans-serif" font-size="22"
+    font-weight="700" fill="#6b7280" text-anchor="middle">Completada</text>
+  <text x="100" y="970" font-family="Arial Black, sans-serif" font-size="38"
+    font-weight="800" fill="#064033">OsteoVital Salamanca</text>
+  <text x="100" y="1018" font-family="Arial, sans-serif" font-size="30"
+    fill="#6b7280">Osteopatía · 50 min</text>
+  <text x="100" y="1058" font-family="Arial, sans-serif" font-size="28"
+    fill="#9ca3af">📅 Lun 21 abr, 12:30</text>
+
+  <!-- Bottom nav -->
+  <rect x="0" y="2640" width="1290" height="156" fill="white"/>
+  <rect x="0" y="2640" width="1290" height="2" fill="#e5e7eb"/>
+  <!-- tabs -->
+  <text x="215" y="2720" font-family="Arial, sans-serif" font-size="50"
+    text-anchor="middle">🗺</text>
+  <text x="215" y="2768" font-family="Arial, sans-serif" font-size="24"
+    fill="#9ca3af" text-anchor="middle">Explorar</text>
+
+  <text x="645" y="2720" font-family="Arial, sans-serif" font-size="50"
+    text-anchor="middle">📋</text>
+  <text x="645" y="2768" font-family="Arial, sans-serif" font-size="24"
+    fill="#1D9E75" font-weight="700" text-anchor="middle">Reservas</text>
+  <!-- Active indicator -->
+  <rect x="585" y="2638" width="120" height="6" rx="3" fill="#1D9E75"/>
+
+  <text x="1075" y="2720" font-family="Arial, sans-serif" font-size="50"
+    text-anchor="middle">👤</text>
+  <text x="1075" y="2768" font-family="Arial, sans-serif" font-size="24"
+    fill="#9ca3af" text-anchor="middle">Perfil</text>
+
+  <!-- Bottom caption -->
+  <rect width="1290" height="240" y="2556" fill="#064033"/>
+  <text x="645" y="2660" font-family="Arial Black, sans-serif" font-size="60"
+    font-weight="800" fill="white" text-anchor="middle">Tus citas, siempre a mano</text>
+  <text x="645" y="2730" font-family="Arial, sans-serif" font-size="36"
+    fill="#A0D9C4" text-anchor="middle">Historial, detalles y cancelaciones en un clic</text>
+</svg>

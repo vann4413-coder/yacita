@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1290 2796" width="1290" height="2796">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#E8F8F2"/>
+      <stop offset="100%" stop-color="#f0fdf8"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f9fffe"/>
+    </linearGradient>
+  </defs>
+
+  <!-- BG -->
+  <rect width="1290" height="2796" fill="url(#bg)"/>
+
+  <!-- Status bar area -->
+  <rect width="1290" height="120" fill="#064033"/>
+  <text x="645" y="75" font-family="Arial, sans-serif" font-size="36"
+    fill="white" text-anchor="middle" font-weight="600">9:41</text>
+
+  <!-- Header -->
+  <rect width="1290" height="220" fill="#064033"/>
+  <text x="80" y="190" font-family="Arial Black, sans-serif" font-size="64"
+    font-weight="800" fill="white">Huecos cerca de ti</text>
+
+  <!-- Search bar -->
+  <rect x="60" y="240" width="1170" height="90" rx="45" fill="white"
+    filter="url(#shadow)"/>
+  <text x="120" y="296" font-family="Arial, sans-serif" font-size="34"
+    fill="#9ca3af">🔍  Fisioterapia, masaje...</text>
+
+  <!-- Filter chips -->
+  <rect x="60"  y="356" width="160" height="56" rx="28" fill="#064033"/>
+  <text x="140" y="390" font-family="Arial, sans-serif" font-size="26"
+    font-weight="700" fill="white" text-anchor="middle">Hoy</text>
+
+  <rect x="236" y="356" width="220" height="56" rx="28" fill="white"/>
+  <text x="346"  y="390" font-family="Arial, sans-serif" font-size="26"
+    fill="#064033" text-anchor="middle">Fisioterapia</text>
+
+  <rect x="472" y="356" width="180" height="56" rx="28" fill="white"/>
+  <text x="562"  y="390" font-family="Arial, sans-serif" font-size="26"
+    fill="#064033" text-anchor="middle">Masaje</text>
+
+  <rect x="668" y="356" width="200" height="56" rx="28" fill="white"/>
+  <text x="768"  y="390" font-family="Arial, sans-serif" font-size="26"
+    fill="#064033" text-anchor="middle">≤ 5 km</text>
+
+  <!-- Card 1 -->
+  <rect x="60" y="440" width="1170" height="340" rx="24" fill="url(#card)"/>
+  <rect x="60" y="440" width="1170" height="170" rx="24" fill="#1D9E75" opacity="0.25"/>
+  <text x="645" y="535" font-family="Arial, sans-serif" font-size="80"
+    text-anchor="middle" dominant-baseline="middle">🏥</text>
+  <!-- badge -->
+  <rect x="96" y="620" width="180" height="44" rx="22" fill="#D85A30"/>
+  <text x="186" y="648" font-family="Arial, sans-serif" font-size="24"
+    font-weight="700" fill="white" text-anchor="middle">Hoy 17:00</text>
+  <!-- name + distance -->
+  <text x="96"   y="704" font-family="Arial Black, sans-serif" font-size="38"
+    font-weight="800" fill="#064033">FisioGram Madrid</text>
+  <text x="1194" y="704" font-family="Arial, sans-serif" font-size="28"
+    fill="#9ca3af" text-anchor="end">0,8 km</text>
+  <text x="96"   y="742" font-family="Arial, sans-serif" font-size="28"
+    fill="#6b7280">Fisioterapia · 60 min</text>
+  <!-- prices -->
+  <text x="96"   y="756" font-family="Arial, sans-serif" font-size="28"
+    fill="#9ca3af" text-decoration="line-through">50,00€</text>
+  <text x="200"  y="758" font-family="Arial Black, sans-serif" font-size="44"
+    font-weight="800" fill="#D85A30">35,00€</text>
+  <rect x="1080" y="724" width="120" height="44" rx="22" fill="#1D9E75"/>
+  <text x="1140" y="751" font-family="Arial, sans-serif" font-size="24"
+    font-weight="700" fill="white" text-anchor="middle">−30%</text>
+
+  <!-- Card 2 -->
+  <rect x="60" y="800" width="1170" height="340" rx="24" fill="url(#card)"/>
+  <rect x="60" y="800" width="1170" height="170" rx="24" fill="#D85A30" opacity="0.20"/>
+  <text x="645" y="895" font-family="Arial, sans-serif" font-size="80"
+    text-anchor="middle" dominant-baseline="middle">💆</text>
+  <rect x="96" y="980" width="210" height="44" rx="22" fill="#D85A30"/>
+  <text x="201" y="1008" font-family="Arial, sans-serif" font-size="24"
+    font-weight="700" fill="white" text-anchor="middle">Mañana 10:00</text>
+  <text x="96"   y="1064" font-family="Arial Black, sans-serif" font-size="38"
+    font-weight="800" fill="#064033">Centro Bienestar Sol</text>
+  <text x="1194" y="1064" font-family="Arial, sans-serif" font-size="28"
+    fill="#9ca3af" text-anchor="end">1,4 km</text>
+  <text x="96"   y="1102" font-family="Arial, sans-serif" font-size="28"
+    fill="#6b7280">Masaje · 45 min</text>
+  <text x="96"   y="1116" font-family="Arial, sans-serif" font-size="28"
+    fill="#9ca3af" text-decoration="line-through">40,00€</text>
+  <text x="200"  y="1118" font-family="Arial Black, sans-serif" font-size="44"
+    font-weight="800" fill="#D85A30">28,00€</text>
+  <rect x="1080" y="1084" width="120" height="44" rx="22" fill="#1D9E75"/>
+  <text x="1140" y="1111" font-family="Arial, sans-serif" font-size="24"
+    font-weight="700" fill="white" text-anchor="middle">−30%</text>
+
+  <!-- Bottom caption -->
+  <rect width="1290" height="240" y="2556" fill="#064033"/>
+  <text x="645" y="2660" font-family="Arial Black, sans-serif" font-size="60"
+    font-weight="800" fill="white" text-anchor="middle">Huecos cerca de ti</text>
+  <text x="645" y="2730" font-family="Arial, sans-serif" font-size="36"
+    fill="#A0D9C4" text-anchor="middle">Ordenados por distancia · Filtros inteligentes</text>
+
+  <!-- Home indicator -->
+  <rect x="495" y="2750" width="300" height="8" rx="4" fill="white" opacity="0.3"/>
+</svg>
