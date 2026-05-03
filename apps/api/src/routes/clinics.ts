@@ -108,7 +108,7 @@ const clinicsRoutes: FastifyPluginAsync = async (fastify) => {
         },
         include: { gap: { select: { discountPrice: true } } },
       });
-      const revenueThisMonth = revenueRows.reduce((sum, b) => sum + b.gap.discountPrice, 0);
+      const revenueThisMonth = revenueRows.reduce((sum: number, b) => sum + b.gap.discountPrice, 0);
 
       const occupancyRate =
         totalGaps > 0 ? Math.round((confirmedBookings / totalGaps) * 100) : 0;

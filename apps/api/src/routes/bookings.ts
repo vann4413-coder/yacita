@@ -1,4 +1,5 @@
 import type { FastifyPluginAsync } from 'fastify';
+import { Prisma } from '@prisma/client';
 import { z } from 'zod';
 import {
   notifyBookingConfirmedToPatient,
@@ -59,7 +60,7 @@ const bookingsRoutes: FastifyPluginAsync = async (fastify) => {
         return reply.code(409).send({ error: 'Conflict', message: 'Ya tienes una reserva en este hueco' });
       }
 
-      const booking = await fastify.prisma.$transaction(async (tx) => {
+      const booking = await fastify.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
         const booking = await tx.booking.create({
           data: { gapId, userId, note, status: 'CONFIRMED' },
           include: {
@@ -238,7 +239,7 @@ const bookingsRoutes: FastifyPluginAsync = async (fastify) => {
         return reply.code(403).send({ error: 'Forbidden', message: 'Los pacientes solo pueden cancelar reservas' });
       }
 
-      const updated = await fastify.prisma.$transaction(async (tx) => {
+      const updated = await fastify.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
         const updated = await tx.booking.update({
           where: { id },
           data: { status: body.data.status },

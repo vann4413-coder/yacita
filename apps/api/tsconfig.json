@@ -5,6 +5,9 @@
     "rootDir": "./src",
     "module": "CommonJS",
     "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noUncheckedIndexedAccess": false,
+    "exactOptionalPropertyTypes": false,
     "lib": ["ES2022"],
     "composite": false,
     "incremental": false
