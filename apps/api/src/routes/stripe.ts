@@ -107,7 +107,7 @@ const stripeRoutes: FastifyPluginAsync = async (fastify) => {
     {
       config: { rawBody: true },
     },
-    async (req: FastifyRequest & { rawBody?: Buffer }, reply) => {
+    async (req: FastifyRequest & { rawBody?: Buffer | string }, reply) => {
       const sig = req.headers['stripe-signature'];
       if (!sig || !req.rawBody) {
         return reply.code(400).send({ error: 'Missing stripe-signature or body' });
@@ -140,7 +140,7 @@ const stripeRoutes: FastifyPluginAsync = async (fastify) => {
 // ── Handlers de eventos ─────────────────────────────────────────────────────
 
 async function handleStripeEvent(
-  fastify: { prisma: import('@prisma/client').PrismaClient; log: { info: (...a: unknown[]) => void } },
+  fastify: { prisma: import('@prisma/client').PrismaClient; stripe: Stripe; log: { info: (...a: unknown[]) => void } },
   event: Stripe.Event,
 ) {
   switch (event.type) {
@@ -151,7 +151,7 @@ async function handleStripeEvent(
       const subId      = session.subscription as string;
       const customerId = session.customer    as string;
 
-      const sub = await (fastify as { stripe: Stripe }).stripe.subscriptions.retrieve(subId);
+      const sub = await fastify.stripe.subscriptions.retrieve(subId);
       const clinicId = sub.metadata?.['clinicId'];
       const plan = (sub.metadata?.['plan'] as 'BASIC' | 'PRO') ?? 'BASIC';
 
