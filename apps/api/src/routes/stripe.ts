@@ -140,7 +140,7 @@ const stripeRoutes: FastifyPluginAsync = async (fastify) => {
 // ── Handlers de eventos ─────────────────────────────────────────────────────
 
 async function handleStripeEvent(
-  fastify: { prisma: import('@prisma/client').PrismaClient; stripe: Stripe; log: { info: (...a: unknown[]) => void } },
+  fastify: { prisma: any; stripe: any; log: { info: (...a: unknown[]) => void } },
   event: Stripe.Event,
 ) {
   switch (event.type) {
