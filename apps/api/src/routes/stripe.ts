@@ -151,7 +151,7 @@ async function handleStripeEvent(
       const subId      = session.subscription as string;
       const customerId = session.customer    as string;
 
-      const sub = await fastify.stripe.subscriptions.retrieve(subId);
+     const sub = await (fastify as any).stripe.subscriptions.retrieve(subId);
       const clinicId = sub.metadata?.['clinicId'];
       const plan = (sub.metadata?.['plan'] as 'BASIC' | 'PRO') ?? 'BASIC';
 
