@@ -64,7 +64,7 @@ export async function sendAndPersist(
       userId,
       title: payload.title,
       body: payload.body,
-      data: payload.data ?? {},
+   data: (payload.data ?? {}) as any,
       sent: !!token,
       sentAt: token ? new Date() : null,
     },
