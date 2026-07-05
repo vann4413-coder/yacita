@@ -27,9 +27,11 @@ export function Sidebar() {
     <aside className="w-60 shrink-0 bg-bgdark flex flex-col h-full">
       {/* Logo */}
       <div className="px-6 py-6 border-b border-white/10">
-        <span className="text-2xl font-extrabold font-heading text-white">Yacita</span>
-        <p className="text-xs text-[#A0D9C4] font-body mt-0.5">Panel de clínica</p>
-      </div>
+  <a href="/">
+    <span className="text-2xl font-extrabold font-heading text-white">Yacita</span>
+    <p className="text-xs text-[#A0D9C4] font-body mt-0.5">Panel de clínica</p>
+  </a>
+</div>
 
       {/* Nav */}
       <nav className="flex-1 px-3 py-4 flex flex-col gap-1">
