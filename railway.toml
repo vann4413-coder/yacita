@@ -1,6 +1,6 @@
 [build]
 builder = "nixpacks"
-buildCommand = "pnpm install --frozen-lockfile && pnpm --filter './packages/**' build && pnpm --filter @yacita/api build"
+buildCommand = "pnpm install --frozen-lockfile && pnpm --filter './packages/**' build && cd apps/api && npx tsc -p tsconfig.json --skipLibCheck"
 
 [deploy]
 startCommand = "node apps/api/dist/server.js"
