@@ -26,7 +26,7 @@ export function Sidebar() {
   return (
     <aside className="w-60 shrink-0 bg-bgdark flex flex-col h-full">
       {/* Logo */}
-      <div className="px-6 py-6 border-b border-white/10">
+     <div className="px-6 py-6 border-b border-white/10">
   <a href="/">
     <span className="text-2xl font-extrabold font-heading text-white">Yacita</span>
     <p className="text-xs text-[#A0D9C4] font-body mt-0.5">Panel de clínica</p>
