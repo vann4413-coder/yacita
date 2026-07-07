@@ -8,7 +8,7 @@ import type { AuthUser } from '@yacita/types';
 import { Button } from '../../../components/ui/Button';
 import { Input } from '../../../components/ui/Input';
 
-const SERVICES_OPTIONS = ['FISIO', 'MASAJE', 'QUIRO', 'OSTEO'];
+cconst SERVICES_OPTIONS = ['FISIO', 'MASAJE', 'QUIRO', 'OSTEO', 'PODOLOGIA', 'PSICOLOGIA DEPORTIVA', 'NUTRICION', 'ENTRENAMIENTO PERSONAL'];
 
 function RegisterContent() {
   const router = useRouter();
