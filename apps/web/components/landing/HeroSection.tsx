@@ -14,7 +14,7 @@ export function HeroSection() {
             <span className="text-primary">en citas</span>
           </h1>
           <p className="text-lg font-body text-[#A0D9C4] leading-relaxed mb-10 max-w-lg">
-            Yacita conecta profesionales de la salud y el deporte — fisioterapeutas, masajistas, osteópatas, psicólogos, nutricionistas, podólogos, quiroprácticos y entrenadores personales — con pacientes que buscan cita inmediata con descuento. Sin comisiones. Sin complicaciones.
+            Yacita conecta profesionales de la salud y el deporte — fisioterapeutas, masajistas, osteópatas, psicólogos deportivos, nutricionistas, podólogos, quiroprácticos y entrenadores personales — con pacientes que buscan cita inmediata con descuento. Sin comisiones. Sin complicaciones.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
