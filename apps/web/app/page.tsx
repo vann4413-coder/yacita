@@ -9,14 +9,14 @@ import { CTASection }          from '../components/landing/CTASection';
 import { Footer }              from '../components/landing/Footer';
 
 export const metadata: Metadata = {
-  title: 'Yacita — Citas de última hora con descuento',
-  description:
-    'Marketplace de última hora para el sector salud en España. Clínicas de fisioterapia, masajes y quiropráctica publican huecos con descuento y los pacientes reservan en segundos.',
-  openGraph: {
-    title: 'Yacita — Convierte huecos en citas',
-    description: 'Flash sales de bienestar. Reserva una cita de fisio, masaje o quiro hoy mismo con hasta un 40% de descuento.',
-    type: 'website',
-    locale: 'es_ES',
+title: 'Yacita — Citas de última hora con descuento',
+description:
+  'Marketplace de última hora para profesionales de la salud y el deporte en España. Fisioterapeutas, masajistas, osteópatas, psicólogos, nutricionistas, podólogos, quiroprácticos y entrenadores personales publican huecos con descuento y los pacientes reservan en segundos.',
+openGraph: {
+  title: 'Yacita — Convierte huecos en citas',
+  description: 'Flash sales de bienestar. Reserva una cita de fisio, masaje, osteopatía, podología, psicología, nutrición o entrenamiento personal hoy mismo con hasta un 40% de descuento.',
+  type: 'website',
+  locale: 'es_ES',
   },
 };
 
