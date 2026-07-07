@@ -13,10 +13,7 @@ title: 'Yacita — Citas de última hora con descuento',
 description:
   'Marketplace de última hora para profesionales de la salud y el deporte en España. Fisioterapeutas, masajistas, osteópatas, psicólogos, nutricionistas, podólogos, quiroprácticos y entrenadores personales publican huecos con descuento y los pacientes reservan en segundos.',
 openGraph: {
-  title: 'Yacita — Convierte huecos en citas',
-  description: 'Flash sales de bienestar. Reserva una cita de fisio, masaje, osteopatía, podología, psicología, nutrición o entrenamiento personal hoy mismo con hasta un 40% de descuento.',
-  type: 'website',
-  locale: 'es_ES',
+description: 'Flash sales de bienestar. Reserva una cita de fisio, masaje, osteopatía, psicología, nutrición, podología o entrenamiento personal hoy mismo con hasta un 40% de descuento.',,
   },
 };
 
