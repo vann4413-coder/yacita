@@ -8,7 +8,7 @@ import { Input } from '../../../components/ui/Input';
 import { formatPriceShort, formatDatetime, calcDiscountPct } from '@yacita/utils';
 import type { Gap } from '@yacita/types';
 
-const SERVICES = ['FISIO', 'MASAJE', 'QUIRO', 'OSTEO'];
+const SERVICES = ['FISIO', 'MASAJE', 'QUIRO', 'OSTEO', 'PODOLOGÍA', 'PSICOLOGÍA DEPORTIVA', 'NUTRICIÓN', 'ENTRENAMIENTO PERSONAL'];
 
 const GAP_STATUS_VARIANT = {
   AVAILABLE:  'success',
