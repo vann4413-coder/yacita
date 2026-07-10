@@ -87,7 +87,12 @@ function RegisterContent() {
               <h2 className="text-lg font-bold font-heading text-ytext">Tu cuenta</h2>
               <Input id="name"     label="Tu nombre"     value={form.name}     onChange={(e) => update('name', e.target.value)}     placeholder="Carlos Ruiz"                     required />
               <Input id="email"    label="Email"         value={form.email}    onChange={(e) => update('email', e.target.value)}    placeholder="tu@clinica.com" type="email"      required />
-              <Input id="password" label="Contraseña"    value={form.password} onChange={(e) => update('password', e.target.value)} placeholder="Mín. 8 caracteres" type="password" required />
+              <div className="relative">
+  <Input id="password" label="Contraseña" value={form.password} onChange={(e) => update('password', e.target.value)} placeholder="Mín. 8 caracteres" type={showPassword ? 'text' : 'password'} required />
+  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-9 text-gray-400 hover:text-gray-600 transition-colors">
+    {showPassword ? '🙈' : '👁️'}
+  </button>
+</div>
               <Button type="button" fullWidth size="lg" onClick={() => { if (!form.name || !form.email || !form.password) { setError('Rellena todos los campos.'); return; } setError(''); setStep(2); }}>
                 Continuar →
               </Button>
