@@ -16,7 +16,7 @@ function RegisterContent() {
   const initialPlan = searchParams.get('plan') === 'pro' ? 'PRO' : 'BASIC';
 
   const [step, setStep] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
   const [form, setForm] = useState({
