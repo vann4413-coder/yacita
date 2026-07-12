@@ -194,5 +194,28 @@ const authRoutes: FastifyPluginAsync = async (fastify) => {
     },
   );
 };
+// POST /auth/reset-password
+  fastify.post('/auth/reset-password', async (req, reply) => {
+    const body = z.object({ email: z.string().email() }).safeParse(req.body);
+    if (!body.success) {
+      return reply.code(400).send({ error: 'Bad Request' });
+    }
 
+    const user = await fastify.prisma.user.findUnique({ where: { email: body.data.email } });
+
+    // Siempre respondemos OK para no revelar si el email existe
+    if (!user) {
+      return reply.send({ message: 'Si el email existe, recibirás un correo.' });
+    }
+
+    const { error } = await fastify.supabase.auth.resetPasswordForEmail(body.data.email, {
+      redirectTo: 'https://yacita.health/clinic/reset-password',
+    });
+
+    if (error) {
+      fastify.log.error(error, 'Error enviando reset password');
+    }
+
+    return reply.send({ message: 'Si el email existe, recibirás un correo.' });
+  });
 export default authRoutes;
