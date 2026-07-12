@@ -3,7 +3,7 @@ export default function TerminosPage() {
     <div className="min-h-screen bg-white py-16 px-6">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-3xl font-extrabold font-heading text-[#1B4332] mb-2">Términos y Condiciones de Uso</h1>
-        <p className="text-sm text-gray-400 mb-10">Yacita · Última actualización: julio de 2025</p>
+        <p className="text-sm text-gray-400 mb-10">Yacita · Última actualización: julio de 2026</p>
 
         <section className="mb-8">
           <h2 className="text-lg font-bold text-[#1B4332] mb-3">1. Objeto y aceptación</h2>
