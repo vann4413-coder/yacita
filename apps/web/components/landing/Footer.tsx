@@ -12,9 +12,8 @@ const LINKS = {
     { label: 'Facturación',          href: '/clinic/billing' },
   ],
   Legal: [
-    { label: 'Términos de uso',       href: '/legal/terminos' },
-    { label: 'Política de privacidad', href: '/legal/privacidad' },
-    { label: 'Política de cookies',   href: '/legal/cookies' },
+    { label: 'Términos de uso',        href: '/terminos' },
+    { label: 'Política de privacidad', href: '/privacidad' },
   ],
 };
 
