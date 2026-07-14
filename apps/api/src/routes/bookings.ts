@@ -304,5 +304,36 @@ function serializeBooking(b: {
     user: b.user,
   };
 }
+// PATCH /bookings/:id/review — paciente valora la experiencia
+  fastify.patch(
+    '/bookings/:id/review',
+    { preHandler: fastify.authenticate },
+    async (req, reply) => {
+      const { id } = req.params as { id: string };
+      const body = z.object({
+        rating: z.number().int().min(1).max(5),
+        review: z.string().max(500).optional(),
+      }).safeParse(req.body);
 
+      if (!body.success) {
+        return reply.code(400).send({ error: 'Bad Request', message: body.error.flatten() });
+      }
+
+      const booking = await fastify.prisma.booking.findUnique({ where: { id } });
+      if (!booking) return reply.code(404).send({ error: 'Not Found' });
+      if (booking.userId !== req.user.sub) return reply.code(403).send({ error: 'Forbidden' });
+      if (booking.status !== 'COMPLETED') return reply.code(409).send({ error: 'Conflict', message: 'Solo puedes valorar citas completadas.' });
+
+      const updated = await fastify.prisma.booking.update({
+        where: { id },
+        data: {
+          rating: body.data.rating,
+          review: body.data.review,
+          reviewedAt: new Date(),
+        },
+      });
+
+      return reply.send({ data: updated });
+    },
+  );
 export default bookingsRoutes;
