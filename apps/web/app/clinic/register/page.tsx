@@ -124,10 +124,36 @@ function RegisterContent() {
 
               {error && <p className="text-sm text-red-500 font-body bg-red-50 rounded-pill px-4 py-2">{error}</p>}
 
-              <div className="flex gap-3">
-                <Button type="button" variant="outline" fullWidth onClick={() => setStep(1)}>← Volver</Button>
-                <Button type="submit" fullWidth size="lg" loading={loading}>Crear mi clínica</Button>
-              </div>
+              <div className="flex flex-col gap-3">
+  <label className="flex items-start gap-2 cursor-pointer">
+    <input
+      type="checkbox"
+      required
+      className="mt-0.5 accent-[#1B4332]"
+    />
+    <span className="text-xs text-gray-500 font-body">
+      He leído y acepto los{' '}
+      <a href="/terminos" target="_blank" className="text-[#1B4332] font-semibold underline">Términos y Condiciones</a>
+      {' '}y la{' '}
+      <a href="/privacidad" target="_blank" className="text-[#1B4332] font-semibold underline">Política de Privacidad</a>
+      {' '}de Yacita. *
+    </span>
+  </label>
+  <label className="flex items-start gap-2 cursor-pointer">
+    <input
+      type="checkbox"
+      required
+      className="mt-0.5 accent-[#1B4332]"
+    />
+    <span className="text-xs text-gray-500 font-body">
+      Confirmo que dispongo de las titulaciones y habilitaciones legales necesarias para ejercer mi actividad profesional. *
+    </span>
+  </label>
+  <div className="flex gap-3 mt-2">
+    <Button type="button" variant="outline" fullWidth onClick={() => setStep(1)}>← Volver</Button>
+    <Button type="submit" fullWidth size="lg" loading={loading}>Crear mi clínica</Button>
+  </div>
+</div>
             </>
           )}
 
