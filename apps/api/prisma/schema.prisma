@@ -112,15 +112,18 @@ model Gap {
 }
 
 model Booking {
-  id        String        @id @default(cuid())
-  gapId     String
-  gap       Gap           @relation(fields: [gapId], references: [id], onDelete: Cascade)
-  userId    String
-  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  status    BookingStatus @default(CONFIRMED)
-  note      String?
-  createdAt DateTime      @default(now())
-  updatedAt DateTime      @updatedAt
+  id         String        @id @default(cuid())
+  gapId      String
+  gap        Gap           @relation(fields: [gapId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  status     BookingStatus @default(CONFIRMED)
+  note       String?
+  rating     Int?
+  review     String?
+  reviewedAt DateTime?
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
 
   @@unique([gapId, userId])
   @@index([userId])
