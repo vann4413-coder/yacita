@@ -2,17 +2,17 @@
 
 import { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { createClient } from '@supabase/supabase-js';
 import { api } from '../../../lib/api';
 import { useAuthStore } from '../../../store/auth';
 import type { AuthUser } from '@yacita/types';
 import { Button } from '../../../components/ui/Button';
-import { createClient } from '@supabase/supabase-js';
+import { Input } from '../../../components/ui/Input';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
-import { Input } from '../../../components/ui/Input';
 
 const SERVICES_OPTIONS = ['FISIO', 'MASAJE', 'QUIRO', 'OSTEO', 'PODOLOGIA', 'PSICOLOGIA DEPORTIVA', 'NUTRICION', 'ENTRENAMIENTO PERSONAL'];
 
@@ -21,10 +21,11 @@ function RegisterContent() {
   const searchParams = useSearchParams();
   const initialPlan = searchParams.get('plan') === 'pro' ? 'PRO' : 'BASIC';
   const [step, setStep] = useState(1);
-  const [loading, setLoading] = useState(false);const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [photoFile, setPhotoFile] = useState<File | null>(null);
-const [photoPreview, setPhotoPreview] = useState<string>('');
+  const [photoPreview, setPhotoPreview] = useState<string>('');
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -54,9 +55,23 @@ const [photoPreview, setPhotoPreview] = useState<string>('');
     setError('');
     setLoading(true);
     try {
+      let photoUrl = '';
+      if (photoFile) {
+        const ext = photoFile.name.split('.').pop();
+        const fileName = `${Date.now()}.${ext}`;
+        const { data: uploadData } = await supabase.storage
+          .from('clinic-photos')
+          .upload(fileName, photoFile, { upsert: true });
+        if (uploadData) {
+          const { data: urlData } = supabase.storage
+            .from('clinic-photos')
+            .getPublicUrl(uploadData.path);
+          photoUrl = urlData.publicUrl;
+        }
+      }
       const { data } = await api.post<{ token: string; user: { id: string; email: string; name: string; role: string }; clinicId: string }>(
         '/auth/clinic',
-        form,
+        { ...form, photos: photoUrl ? [photoUrl] : [] },
       );
       localStorage.setItem('yacita_token', data.token);
       useAuthStore.setState({ user: data.user as AuthUser, token: data.token, clinicId: data.clinicId });
@@ -86,118 +101,3 @@ const [photoPreview, setPhotoPreview] = useState<string>('');
             {[1, 2].map((s) => (
               <div key={s} className={`h-1 flex-1 rounded-full transition-colors ${step >= s ? 'bg-primary' : 'bg-gray-200'}`} />
             ))}
-          </div>
-
-          {step === 1 && (
-            <>
-              <h2 className="text-lg font-bold font-heading text-ytext">Tu cuenta</h2>
-              <Input id="name"     label="Tu nombre"     value={form.name}     onChange={(e) => update('name', e.target.value)}     placeholder="Carlos Ruiz"                     required />
-              <Input id="email"    label="Email"         value={form.email}    onChange={(e) => update('email', e.target.value)}    placeholder="tu@clinica.com" type="email"      required />
-              <div className="relative">
-  <Input id="password" label="Contraseña" value={form.password} onChange={(e) => update('password', e.target.value)} placeholder="Mín. 8 caracteres" type={showPassword ? 'text' : 'password'} required />
-  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-9 text-gray-400 hover:text-gray-600 transition-colors">
-    {showPassword ? '🙈' : '👁️'}
-  </button>
-</div>
-              <Button type="button" fullWidth size="lg" onClick={() => { if (!form.name || !form.email || !form.password) { setError('Rellena todos los campos.'); return; } setError(''); setStep(2); }}>
-                Continuar →
-              </Button>
-            </>
-          )}
-
-          {step === 2 && (
-            <>
-              <h2 className="text-lg font-bold font-heading text-ytext">Tu clínica</h2>
-              <Input id="clinicName"  label="Nombre de la clínica" value={form.clinicName}  onChange={(e) => update('clinicName', e.target.value)}  placeholder="FisioGram Madrid" required />
-              <Input id="address"     label="Dirección"            value={form.address}     onChange={(e) => update('address', e.target.value)}     placeholder="Calle Gran Vía 42, Madrid" required />
-              <Input id="description" label="Descripción (opcional)" value={form.description} onChange={(e) => update('description', e.target.value)} placeholder="Especialistas en..." />
-<div>
-  <p className="text-sm font-semibold text-gray-600 font-body mb-2">Foto de la clínica (opcional)</p>
-  {photoPreview && (
-    <img src={photoPreview} alt="preview" className="w-full h-32 object-cover rounded-xl mb-2" />
-  )}
-  <input
-    type="file"
-    accept="image/*"
-    onChange={(e) => {
-      const file = e.target.files?.[0];
-      if (file) {
-        setPhotoFile(file);
-        setPhotoPreview(URL.createObjectURL(file));
-      }
-    }}
-    className="text-sm text-gray-500 font-body"
-  />
-</div>
-              <div>
-                <p className="text-sm font-semibold text-gray-600 font-body mb-2">Servicios que ofreces</p>
-                <div className="flex gap-2 flex-wrap">
-                  {SERVICES_OPTIONS.map((s) => (
-                    <button
-                      key={s}
-                      type="button"
-                      onClick={() => toggleService(s)}
-                      className={`rounded-pill px-4 py-2 text-sm font-semibold font-body border-2 transition-colors ${
-                        form.services.includes(s) ? 'bg-primary text-white border-primary' : 'border-gray-200 text-gray-500 hover:border-primary hover:text-primary'
-                      }`}
-                    >
-                      {s}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {error && <p className="text-sm text-red-500 font-body bg-red-50 rounded-pill px-4 py-2">{error}</p>}
-
-              <div className="flex flex-col gap-3">
-  <label className="flex items-start gap-2 cursor-pointer">
-    <input
-      type="checkbox"
-      required
-      className="mt-0.5 accent-[#1B4332]"
-    />
-    <span className="text-xs text-gray-500 font-body">
-      He leído y acepto los{' '}
-      <a href="/terminos" target="_blank" className="text-[#1B4332] font-semibold underline">Términos y Condiciones</a>
-      {' '}y la{' '}
-      <a href="/privacidad" target="_blank" className="text-[#1B4332] font-semibold underline">Política de Privacidad</a>
-      {' '}de Yacita. *
-    </span>
-  </label>
-  <label className="flex items-start gap-2 cursor-pointer">
-    <input
-      type="checkbox"
-      required
-      className="mt-0.5 accent-[#1B4332]"
-    />
-    <span className="text-xs text-gray-500 font-body">
-      Confirmo que dispongo de las titulaciones y habilitaciones legales necesarias para ejercer mi actividad profesional. *
-    </span>
-  </label>
-  <div className="flex gap-3 mt-2">
-    <Button type="button" variant="outline" fullWidth onClick={() => setStep(1)}>← Volver</Button>
-    <Button type="submit" fullWidth size="lg" loading={loading}>Crear mi clínica</Button>
-  </div>
-</div>
-            </>
-          )}
-
-          {step === 1 && error && <p className="text-sm text-red-500 font-body bg-red-50 rounded-pill px-4 py-2">{error}</p>}
-
-          <p className="text-center text-sm font-body text-gray-500">
-            ¿Ya tienes cuenta?{' '}
-            <a href="/clinic/login" className="text-primary font-semibold hover:underline">Acceder</a>
-          </p>
-        </form>
-      </div>
-    </div>
-  );
-}
-
-export default function ClinicRegisterPage() {
-  return (
-    <Suspense>
-      <RegisterContent />
-    </Suspense>
-  );
-}
