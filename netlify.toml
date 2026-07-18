@@ -1,5 +1,5 @@
 [build]
- command = "pnpm install --no-frozen-lockfile && pnpm --filter @yacita/types build && pnpm --filter @yacita/utils build && pnpm --filter @yacita/web build"
+  command = "npm install -g pnpm && pnpm install --no-frozen-lockfile && pnpm --filter @yacita/types build && pnpm --filter @yacita/utils build && pnpm --filter @yacita/web build"
   publish = "apps/web/.next"
 
 [build.environment]
