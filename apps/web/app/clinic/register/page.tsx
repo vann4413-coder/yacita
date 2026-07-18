@@ -23,6 +23,8 @@ function RegisterContent() {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [photoFile, setPhotoFile] = useState<File | null>(null);
+const [photoPreview, setPhotoPreview] = useState<string>('');
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -109,7 +111,24 @@ function RegisterContent() {
               <Input id="clinicName"  label="Nombre de la clínica" value={form.clinicName}  onChange={(e) => update('clinicName', e.target.value)}  placeholder="FisioGram Madrid" required />
               <Input id="address"     label="Dirección"            value={form.address}     onChange={(e) => update('address', e.target.value)}     placeholder="Calle Gran Vía 42, Madrid" required />
               <Input id="description" label="Descripción (opcional)" value={form.description} onChange={(e) => update('description', e.target.value)} placeholder="Especialistas en..." />
-
+<div>
+  <p className="text-sm font-semibold text-gray-600 font-body mb-2">Foto de la clínica (opcional)</p>
+  {photoPreview && (
+    <img src={photoPreview} alt="preview" className="w-full h-32 object-cover rounded-xl mb-2" />
+  )}
+  <input
+    type="file"
+    accept="image/*"
+    onChange={(e) => {
+      const file = e.target.files?.[0];
+      if (file) {
+        setPhotoFile(file);
+        setPhotoPreview(URL.createObjectURL(file));
+      }
+    }}
+    className="text-sm text-gray-500 font-body"
+  />
+</div>
               <div>
                 <p className="text-sm font-semibold text-gray-600 font-body mb-2">Servicios que ofreces</p>
                 <div className="flex gap-2 flex-wrap">
