@@ -24,7 +24,7 @@
     "lucide-react": "^0.378.0",
     "@googlemaps/js-api-loader": "^1.16.6",
     "stripe": "^15.7.0",
-    "zustand": "^4.5.2"
+    "zustand": "^4.5.2",
     "@supabase/supabase-js": "^2.43.0"
   },
   "devDependencies": {
