@@ -25,6 +25,7 @@
     "@googlemaps/js-api-loader": "^1.16.6",
     "stripe": "^15.7.0",
     "zustand": "^4.5.2"
+    "@supabase/supabase-js": "^2.43.0"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.0.0",
