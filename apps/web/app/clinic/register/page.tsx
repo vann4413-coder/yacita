@@ -6,6 +6,12 @@ import { api } from '../../../lib/api';
 import { useAuthStore } from '../../../store/auth';
 import type { AuthUser } from '@yacita/types';
 import { Button } from '../../../components/ui/Button';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 import { Input } from '../../../components/ui/Input';
 
 const SERVICES_OPTIONS = ['FISIO', 'MASAJE', 'QUIRO', 'OSTEO', 'PODOLOGIA', 'PSICOLOGIA DEPORTIVA', 'NUTRICION', 'ENTRENAMIENTO PERSONAL'];
