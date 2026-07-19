@@ -99,6 +99,14 @@ export default function SettingsPage() {
         </Button>
       </div>
 
+      <div className="bg-white rounded-card shadow-soft p-6 mb-6">
+        <p className="text-sm font-bold font-heading text-ytext mb-3">Vista previa del perfil</p>
+        <p className="text-xs text-gray-400 font-body mb-4">Comprueba como ven los pacientes tu clinica en la app.</p>
+        <a href="/perfil" className="block w-full text-center bg-[#1B4332] text-white font-semibold font-body text-sm py-3 rounded-xl hover:bg-[#2d6a4f] transition-colors">
+          Ver mi perfil publico →
+        </a>
+      </div>
+
       <div className="bg-white rounded-card shadow-soft p-6">
         <p className="text-xs text-gray-400 font-body">
           Para modificar otros datos o eliminar tu cuenta contacta con nosotros en{' '}
