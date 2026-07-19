@@ -7,7 +7,7 @@ export default function PrivacidadPage() {
 
         <section className="mb-8">
           <h2 className="text-lg font-bold text-[#1B4332] mb-3">1. Responsable del tratamiento</h2>
-          <p className="text-gray-600 text-sm leading-relaxed">El responsable del tratamiento de sus datos personales es Yacita, con domicilio a efectos de comunicaciones en <a href="mailto:hola@yacita.es" className="text-[#1B4332] underline">hola@yacita.es</a>.</p>
+          <p className="text-gray-600 text-sm leading-relaxed">El responsable del tratamiento de sus datos personales es Yacita, con domicilio a efectos de comunicaciones en <a href="mailto:hola@yacita.health" className="text-[#1B4332] underline">hola@yacita.health</a>.</p>
         </section>
 
         <section className="mb-8">
@@ -48,7 +48,7 @@ export default function PrivacidadPage() {
 
         <section className="mb-8">
           <h2 className="text-lg font-bold text-[#1B4332] mb-3">7. Derechos del interesado</h2>
-          <p className="text-gray-600 text-sm leading-relaxed mb-2">Puede ejercer los siguientes derechos enviando un correo a <a href="mailto:hola@yacita.es" className="text-[#1B4332] underline">hola@yacita.es</a>:</p>
+          <p className="text-gray-600 text-sm leading-relaxed mb-2">Puede ejercer los siguientes derechos enviando un correo a <a href="mailto:hola@yacita.health" className="text-[#1B4332] underline">hola@yacita.health</a>:</p>
           <ul className="list-disc list-inside text-gray-600 text-sm leading-relaxed space-y-1">
             <li>Acceso: conocer qué datos tenemos sobre usted.</li>
             <li>Rectificación: corregir datos inexactos.</li>
@@ -71,7 +71,7 @@ export default function PrivacidadPage() {
 
         <section className="mb-8">
           <h2 className="text-lg font-bold text-[#1B4332] mb-3">10. Contacto</h2>
-          <p className="text-gray-600 text-sm leading-relaxed">Para cualquier consulta relacionada con la privacidad, contáctenos en: <a href="mailto:hola@yacita.es" className="text-[#1B4332] underline">hola@yacita.es</a></p>
+          <p className="text-gray-600 text-sm leading-relaxed">Para cualquier consulta relacionada con la privacidad, contáctenos en: <a href="mailto:hola@yacita.health" className="text-[#1B4332] underline">hola@yacita.health</a></p>
         </section>
 
         <div className="mt-12 pt-6 border-t border-gray-100">

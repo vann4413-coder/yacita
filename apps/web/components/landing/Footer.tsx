@@ -75,8 +75,8 @@ export function Footer() {
           <p>© {new Date().getFullYear()} Yacita. Todos los derechos reservados.</p>
           <p>
             Hecho con ❤️ en España ·{' '}
-            <a href="mailto:hola@yacita.es" className="hover:text-white transition-colors">
-              hola@yacita.es
+            <a href="mailto:hola@yacita.health" className="hover:text-white transition-colors">
+              hola@yacita.health
             </a>
           </p>
         </div>

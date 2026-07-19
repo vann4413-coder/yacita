@@ -38,8 +38,8 @@ export function FAQSection() {
           </h2>
           <p className="text-gray-500 font-body text-lg">
             ¿Tienes más dudas? Escríbenos a{' '}
-            <a href="mailto:hola@yacita.es" className="text-primary font-semibold hover:underline">
-              hola@yacita.es
+            <a href="mailto:hola@yacita.health" className="text-primary font-semibold hover:underline">
+              hola@yacita.health
             </a>
           </p>
         </div>

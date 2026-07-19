@@ -102,7 +102,7 @@ export default function SettingsPage() {
       <div className="bg-white rounded-card shadow-soft p-6">
         <p className="text-xs text-gray-400 font-body">
           Para modificar otros datos o eliminar tu cuenta contacta con nosotros en{' '}
-          <a href="mailto:hola@yacita.es" className="text-primary hover:underline">hola@yacita.es</a>
+          <a href="mailto:hola@yacita.health" className="text-primary hover:underline">hola@yacita.health</a>
         </p>
       </div>
     </div>

@@ -73,7 +73,7 @@ export default function TerminosPage() {
 
         <section className="mb-8">
           <h2 className="text-lg font-bold text-[#1B4332] mb-3">12. Contacto</h2>
-          <p className="text-gray-600 text-sm leading-relaxed">Para cualquier consulta, contáctenos en: <a href="mailto:hola@yacita.es" className="text-[#1B4332] underline">hola@yacita.es</a></p>
+          <p className="text-gray-600 text-sm leading-relaxed">Para cualquier consulta, contáctenos en: <a href="mailto:hola@yacita.health" className="text-[#1B4332] underline">hola@yacita.health</a></p>
         </section>
 
         <div className="mt-12 pt-6 border-t border-gray-100">
