@@ -6,24 +6,24 @@ export function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="148" height="40" role="img" aria-label="Yacita logo">
-            <rect x="0" y="4" width="52" height="52" rx="12" fill="#1D9E75"/>
-            <path d="M11 46 Q26 14 41 46" stroke="#FFFFFF" strokeWidth="6.5" fill="none" strokeLinecap="round"/>
-            <circle cx="26" cy="46" r="4.5" fill="#FFFFFF"/>
-            <text x="62" y="42" fontFamily="Georgia, 'Times New Roman', serif" fontSize="38" fontWeight="700" fill="#D85A30" letterSpacing="-1">ya</text>
-            <text x="108" y="42" fontFamily="Georgia, 'Times New Roman', serif" fontSize="38" fontWeight="700" fill="#FFFFFF" letterSpacing="-1">cita</text>
+            <rect x="0" y="4" width="52" height="52" rx="12" fill="#1B4332"/>
+            <path d="M11 46 Q26 14 41 46" stroke="#79C8C5" strokeWidth="6.5" fill="none" strokeLinecap="round"/>
+            <circle cx="26" cy="46" r="4.5" fill="#F47E36"/>
+            <text x="62" y="42" fontFamily="Georgia, 'Times New Roman', serif" fontSize="38" fontWeight="700" fill="#FFFFFF" letterSpacing="-1">ya</text>
+            <text x="108" y="42" fontFamily="Georgia, 'Times New Roman', serif" fontSize="38" fontWeight="700" fill="#F47E36" letterSpacing="-1">cita</text>
           </svg>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-body">
-          <a href="#como-funciona" className="text-[#A0D9C4] hover:text-white transition-colors">Cómo funciona</a>
-          <a href="#precios"        className="text-[#A0D9C4] hover:text-white transition-colors">Precios</a>
-          <a href="#faq"            className="text-[#A0D9C4] hover:text-white transition-colors">FAQ</a>
+          <a href="#como-funciona" className="text-[#79C8C5] hover:text-white transition-colors">Cómo funciona</a>
+          <a href="#precios"       className="text-[#79C8C5] hover:text-white transition-colors">Precios</a>
+          <a href="#faq"           className="text-[#79C8C5] hover:text-white transition-colors">FAQ</a>
         </nav>
 
         <div className="flex items-center gap-3">
           <Link
             href="/clinic/login"
-            className="text-sm font-semibold font-body text-[#A0D9C4] hover:text-white transition-colors hidden sm:block"
+            className="text-sm font-semibold font-body text-[#79C8C5] hover:text-white transition-colors hidden sm:block"
           >
             Acceder
           </Link>

@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   avatar: { width: 72, height: 72, borderRadius: 36, backgroundColor: colors.primary, alignItems: 'center', justifyContent: 'center' },
   avatarText: { fontFamily: fontFamily.heading, fontSize: fontSize.xxl, color: colors.white, fontWeight: '700' },
   name: { fontFamily: fontFamily.heading, fontSize: fontSize.lg, color: colors.white, fontWeight: '700', marginTop: spacing.md },
-  email: { fontFamily: fontFamily.body, fontSize: fontSize.sm, color: '#A0D9C4', marginTop: 2 },
+  email: { fontFamily: fontFamily.body, fontSize: fontSize.sm, color: '#79C8C5', marginTop: 2 },
 
   menu: { backgroundColor: colors.white, marginTop: spacing.md, borderRadius: radius.card, marginHorizontal: spacing.md, overflow: 'hidden' },
   menuItem: { flexDirection: 'row', alignItems: 'center', paddingVertical: spacing.md, paddingHorizontal: spacing.lg, borderBottomWidth: 1, borderBottomColor: colors.gray200, gap: spacing.md },

@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   container: { flexGrow: 1, justifyContent: 'center', padding: spacing.xl },
   header: { alignItems: 'center', marginBottom: spacing.xxl },
   logo: { fontFamily: fontFamily.heading, fontSize: fontSize.display, color: colors.white, fontWeight: '800' },
-  tagline: { fontFamily: fontFamily.body, fontSize: fontSize.base, color: '#A0D9C4', marginTop: spacing.xs },
+  tagline: { fontFamily: fontFamily.body, fontSize: fontSize.base, color: '#79C8C5', marginTop: spacing.xs },
   form: { backgroundColor: colors.white, borderRadius: radius.modal, padding: spacing.xl },
   label: { fontFamily: fontFamily.body, fontSize: fontSize.sm, color: colors.gray600, fontWeight: '600', marginBottom: 6 },
   input: { fontFamily: fontFamily.body, fontSize: fontSize.base, color: colors.text, backgroundColor: colors.bgSoft, borderRadius: radius.pill, paddingHorizontal: spacing.md, paddingVertical: 12, borderWidth: 1, borderColor: colors.gray200 },

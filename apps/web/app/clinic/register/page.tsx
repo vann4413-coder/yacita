@@ -85,7 +85,7 @@ function RegisterContent() {
       <div className="w-full max-w-lg">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-extrabold font-heading text-white">Yacita</h1>
-          <p className="text-[#A0D9C4] font-body mt-1">Registra tu clinica</p>
+          <p className="text-[#79C8C5] font-body mt-1">Registra tu clinica</p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-modal p-8 flex flex-col gap-5 shadow-card">

@@ -5,23 +5,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary:  '#1D9E75',
-        cta:      '#D85A30',
-        ytext:    '#064033',
-        bgsoft:   '#E8F8F2',
-        bgdark:   '#064033',
+        primary:   '#1B4332',
+        turquoise: '#79C8C5',
+        cta:       '#F47E36',
+        flash:     '#FFD166',
+        ytext:     '#1B4332',
+        bgsoft:    '#F7F7F7',
+        bgdark:    '#1B4332',
       },
       fontFamily: {
         heading: ['var(--font-jakarta)', 'sans-serif'],
         body:    ['var(--font-inter)',   'sans-serif'],
       },
       borderRadius: {
-        card:  '12px',
+        card:  '16px',
         pill:  '8px',
         modal: '20px',
       },
       boxShadow: {
-        soft: '0 2px 8px rgba(0,0,0,0.08)',
+        soft: '0 2px 8px rgba(0,0,0,0.06)',
         card: '0 4px 16px rgba(0,0,0,0.08)',
       },
     },

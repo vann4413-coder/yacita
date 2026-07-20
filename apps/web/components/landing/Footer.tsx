@@ -19,21 +19,21 @@ const LINKS = {
 
 export function Footer() {
   return (
-    <footer className="bg-bgdark text-[#A0D9C4]">
+    <footer className="bg-bgdark text-[#79C8C5]">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="132" height="36" role="img" aria-label="Yacita logo">
-                <rect x="0" y="4" width="52" height="52" rx="12" fill="#1D9E75"/>
+                <rect x="0" y="4" width="52" height="52" rx="12" fill="#1B4332"/>
                 <path d="M11 46 Q26 14 41 46" stroke="#FFFFFF" strokeWidth="6.5" fill="none" strokeLinecap="round"/>
                 <circle cx="26" cy="46" r="4.5" fill="#FFFFFF"/>
-                <text x="62" y="42" fontFamily="Georgia, 'Times New Roman', serif" fontSize="38" fontWeight="700" fill="#D85A30" letterSpacing="-1">ya</text>
+                <text x="62" y="42" fontFamily="Georgia, 'Times New Roman', serif" fontSize="38" fontWeight="700" fill="#F47E36" letterSpacing="-1">ya</text>
                 <text x="108" y="42" fontFamily="Georgia, 'Times New Roman', serif" fontSize="38" fontWeight="700" fill="#FFFFFF" letterSpacing="-1">cita</text>
               </svg>
             </Link>
-            <p className="text-sm font-body leading-relaxed text-[#A0D9C4]/80 max-w-xs">
+            <p className="text-sm font-body leading-relaxed text-[#79C8C5]/80 max-w-xs">
               Marketplace de última hora para el sector salud y bienestar en España.
             </p>
             <div className="flex gap-3 mt-5">
@@ -71,7 +71,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-body text-[#A0D9C4]/60">
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-body text-[#79C8C5]/60">
           <p>© {new Date().getFullYear()} Yacita. Todos los derechos reservados.</p>
           <p>
             Hecho con ❤️ en España ·{' '}

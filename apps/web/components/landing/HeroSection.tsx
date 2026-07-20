@@ -13,7 +13,7 @@ export function HeroSection() {
             Convierte huecos{' '}
             <span className="text-primary">en citas</span>
           </h1>
-          <p className="text-lg font-body text-[#A0D9C4] leading-relaxed mb-10 max-w-lg">
+          <p className="text-lg font-body text-[#79C8C5] leading-relaxed mb-10 max-w-lg">
             Yacita conecta profesionales de la salud y el deporte — fisioterapeutas, masajistas, osteópatas, psicólogos deportivos, nutricionistas, podólogos, quiroprácticos y entrenadores personales — con pacientes que buscan cita inmediata con descuento. Sin comisiones. Sin complicaciones.
           </p>
 
@@ -41,7 +41,7 @@ export function HeroSection() {
             ].map(({ value, label }) => (
               <div key={label}>
                 <p className="text-2xl font-extrabold font-heading text-white">{value}</p>
-                <p className="text-xs font-body text-[#A0D9C4] mt-0.5">{label}</p>
+                <p className="text-xs font-body text-[#79C8C5] mt-0.5">{label}</p>
               </div>
             ))}
           </div>

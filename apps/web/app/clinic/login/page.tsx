@@ -56,7 +56,7 @@ export default function ClinicLoginPage() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <a href="/"><h1 className="text-4xl font-extrabold font-heading text-white">Yacita</h1></a>
-          <p className="text-[#A0D9C4] font-body mt-1">Panel de clínica</p>
+          <p className="text-[#79C8C5] font-body mt-1">Panel de clínica</p>
         </div>
         <form onSubmit={handleSubmit} className="bg-white rounded-modal p-8 flex flex-col gap-5 shadow-card">
           <h2 className="text-xl font-bold font-heading text-ytext">Acceder a mi clínica</h2>
