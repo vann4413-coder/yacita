@@ -11,7 +11,7 @@ export function HeroSection() {
           </span>
           <h1 className="text-5xl lg:text-6xl font-extrabold font-heading text-white leading-tight text-balance mb-6">
             Convierte huecos{' '}
-            <span className="text-turquoise">en citas</span>
+            <span className="text-cta">en citas</span>
           </h1>
           <p className="text-lg font-body text-[#79C8C5] leading-relaxed mb-10 max-w-lg">
             Yacita conecta profesionales de la salud y el deporte — fisioterapeutas, masajistas, osteópatas, psicólogos deportivos, nutricionistas, podólogos, quiroprácticos y entrenadores personales — con pacientes que buscan cita inmediata con descuento. Sin comisiones. Sin complicaciones.
