@@ -6,12 +6,12 @@ export function HeroSection() {
       <div className="max-w-6xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
         {/* Copy */}
         <div>
-          <span className="inline-block bg-primary/20 text-primary text-xs font-bold font-body rounded-full px-3 py-1 mb-6 uppercase tracking-widest">
+          <span className="inline-block bg-turquoise/20 text-turquoise text-xs font-bold font-body rounded-full px-3 py-1 mb-6 uppercase tracking-widest">
             Flash sales de bienestar
           </span>
           <h1 className="text-5xl lg:text-6xl font-extrabold font-heading text-white leading-tight text-balance mb-6">
             Convierte huecos{' '}
-            <span className="text-primary">en citas</span>
+            <span className="text-turquoise">en citas</span>
           </h1>
           <p className="text-lg font-body text-[#79C8C5] leading-relaxed mb-10 max-w-lg">
             Yacita conecta profesionales de la salud y el deporte — fisioterapeutas, masajistas, osteópatas, psicólogos deportivos, nutricionistas, podólogos, quiroprácticos y entrenadores personales — con pacientes que buscan cita inmediata con descuento. Sin comisiones. Sin complicaciones.

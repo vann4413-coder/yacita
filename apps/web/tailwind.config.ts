@@ -9,7 +9,7 @@ const config: Config = {
         turquoise: '#79C8C5',
         cta:       '#F47E36',
         flash:     '#FFD166',
-        ytext:     '#1B4332',
+        ytext:     '#1a1a1a',
         bgsoft:    '#F7F7F7',
         bgdark:    '#1B4332',
       },
