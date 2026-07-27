@@ -341,3 +341,4 @@ function serializeBooking(b: {
 }
 
 export default bookingsRoutes;
+
