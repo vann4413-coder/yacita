@@ -302,9 +302,6 @@ function serializeBooking(b: {
       datetime: b.gap.datetime?.toISOString(),
     },
     user: b.user,
-  };
-}
-// PATCH /bookings/:id/review — paciente valora la experiencia
 
   // PATCH /bookings/:id/review — paciente valora la experiencia
   fastify.patch(
@@ -338,7 +335,6 @@ function serializeBooking(b: {
       return reply.send({ data: updated });
     },
   );
-}
+};
 
 export default bookingsRoutes;
-
