@@ -268,40 +268,6 @@ const bookingsRoutes: FastifyPluginAsync = async (fastify) => {
       return reply.send({ data: serializeBooking(updated) });
     },
   );
-};
-
-// ── Serializar fechas ────────────────────────────────────────────────────────
-function serializeBooking(b: {
-  id: string;
-  gapId: string;
-  userId: string;
-  status: string;
-  note: string | null;
-  createdAt: Date;
-  updatedAt: Date;
-  gap: {
-    id?: string;
-    datetime?: Date;
-    durationMins?: number;
-    service?: string;
-    discountPrice?: number;
-    clinic: { id: string; name: string; address: string; photos: string[] };
-  };
-  user: { id: string; name: string; email: string };
-}) {
-  return {
-    id: b.id,
-    gapId: b.gapId,
-    userId: b.userId,
-    status: b.status,
-    note: b.note,
-    createdAt: b.createdAt.toISOString(),
-    updatedAt: b.updatedAt.toISOString(),
-    gap: {
-      ...b.gap,
-      datetime: b.gap.datetime?.toISOString(),
-    },
-    user: b.user,
 
   // PATCH /bookings/:id/review — paciente valora la experiencia
   fastify.patch(
@@ -336,5 +302,25 @@ function serializeBooking(b: {
     },
   );
 };
+
+
+// ── Serializar fechas ────────────────────────────────────────────────────────
+function serializeBooking(b: {
+  id: string;
+  gapId: string;
+  userId: string;
+  status: string;
+  note: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+  gap: {
+    id?: string;
+    datetime?: Date;
+    durationMins?: number;
+    service?: string;
+    discountPrice?: number;
+    clinic: { id: string; name: string; address: string; photos: string[] };
+  };
+}
 
 export default bookingsRoutes;
