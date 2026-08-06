@@ -85,6 +85,12 @@ async function buildServer() {
     env: env.NODE_ENV,
   }));
 
+
+  // Debug: list all routes
+  fastify.get('/debug/routes', async () => {
+    return fastify.printRoutes();
+  });
+
   // ── Rutas ────────────────────────────────────────────────────────────
   await fastify.register(authRoutes);
   await fastify.register(gapsRoutes);
@@ -136,3 +142,4 @@ signals.forEach((signal) => {
 });
 
 start();
+// This line intentionally left blank for cache busting - v2
