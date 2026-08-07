@@ -17,7 +17,12 @@ export const metadata: Metadata = {
     description: 'Flash sales de bienestar. Reserva una cita de fisio, masaje, osteopatía, psicología, nutrición, podología o entrenamiento personal hoy mismo con hasta un 40% de descuento.',
     type: 'website',
     locale: 'es_ES',
+    url: 'https://yacita.health',
+    siteName: 'Yacita',
   },
+  metadataBase: new URL('https://yacita.health'),
+  alternates: { canonical: 'https://yacita.health' },
+  keywords: ['fisioterapia', 'masaje', 'osteopatia', 'citas ultima hora', 'descuento', 'salud', 'deporte', 'España'],
 };
 
 export default function LandingPage() {
