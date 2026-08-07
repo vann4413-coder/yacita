@@ -16,7 +16,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#064033"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "es.yacita.app",
@@ -26,7 +28,9 @@
         "NSLocationWhenInUseUsageDescription": "Yacita usa tu ubicación para mostrarte los huecos de última hora más cercanos a ti.",
         "NSLocationAlwaysUsageDescription": "Yacita usa tu ubicación para enviarte alertas cuando aparezca un hueco cercano.",
         "NSUserNotificationsUsageDescription": "Activa las notificaciones para enterarte antes que nadie de los huecos disponibles.",
-        "UIBackgroundModes": ["remote-notification"]
+        "UIBackgroundModes": [
+          "remote-notification"
+        ]
       }
     },
     "android": {
@@ -86,14 +90,15 @@
     },
     "extra": {
       "eas": {
-        "projectId": "your-eas-project-id"
+        "projectId": "029f444b-ba6c-4a9b-a865-afb0ef501d4e"
       }
     },
     "updates": {
-      "url": "https://u.expo.dev/your-eas-project-id",
+      "url": "https://u.expo.dev/029f444b-ba6c-4a9b-a865-afb0ef501d4e",
       "enabled": true,
       "checkAutomatically": "ON_LOAD",
       "fallbackToCacheTimeout": 0
-    }
+    },
+    "owner": "yacita"
   }
 }
