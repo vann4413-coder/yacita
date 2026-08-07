@@ -45,8 +45,7 @@
         "ACCESS_COARSE_LOCATION",
         "RECEIVE_BOOT_COMPLETED",
         "VIBRATE"
-      ],
-      "googleServicesFile": "./google-services.json"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -73,15 +72,6 @@
         "expo-location",
         {
           "locationWhenInUsePermission": "Yacita usa tu ubicación para mostrarte los huecos de última hora más cercanos a ti."
-        }
-      ],
-      [
-        "expo-notifications",
-        {
-          "icon": "./assets/notification-icon.png",
-          "color": "#1D9E75",
-          "sounds": [],
-          "mode": "production"
         }
       ]
     ],
