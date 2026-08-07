@@ -40,7 +40,7 @@
         "buildType": "app-bundle"
       },
       "env": {
-        "EXPO_PUBLIC_API_URL": "https://api.yacita.es"
+        "EXPO_PUBLIC_API_URL": "https://yacitaapi-production.up.railway.app"
       }
     }
   },
