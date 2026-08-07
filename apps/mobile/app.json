@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Yacita",
-    "slug": "yacita",
+    "slug": "yacita-health",
     "version": "1.0.0",
     "runtimeVersion": {
       "policy": "appVersion"
