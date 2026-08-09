@@ -193,8 +193,8 @@ const authRoutes: FastifyPluginAsync = async (fastify) => {
       return reply.send({ data: updated });
     },
   );
-};
-// POST /auth/reset-password
+
+  // POST /auth/reset-password
   fastify.post('/auth/reset-password', async (req, reply) => {
     const body = z.object({ email: z.string().email() }).safeParse(req.body);
     if (!body.success) {
@@ -218,4 +218,5 @@ const authRoutes: FastifyPluginAsync = async (fastify) => {
 
     return reply.send({ message: 'Si el email existe, recibirás un correo.' });
   });
+};
 export default authRoutes;
