@@ -321,6 +321,22 @@ function serializeBooking(b: {
     discountPrice?: number;
     clinic: { id: string; name: string; address: string; photos: string[] };
   };
+  user: { id: string; name: string; email: string };
+}) {
+  return {
+    id: b.id,
+    gapId: b.gapId,
+    userId: b.userId,
+    status: b.status,
+    note: b.note,
+    createdAt: b.createdAt.toISOString(),
+    updatedAt: b.updatedAt.toISOString(),
+    gap: {
+      ...b.gap,
+      datetime: b.gap.datetime?.toISOString(),
+    },
+    user: b.user,
+  };
 }
 
 export default bookingsRoutes;
