@@ -99,30 +99,6 @@ async function buildServer() {
   await fastify.register(stripeRoutes);
 
 
-  // PATCH /bookings/:id/review — direct registration
-  fastify.patch('/bookings/:id/review', {
-    preHandler: fastify.authenticate,
-    handler: async (req: any, reply: any) => {
-      const { id } = req.params as { id: string };
-      const { rating, review } = req.body as { rating: number; review?: string };
-      
-      if (!rating || rating < 1 || rating > 5) {
-        return reply.code(400).send({ error: 'Rating must be between 1 and 5' });
-      }
-
-      const booking = await fastify.prisma.booking.findUnique({ where: { id } });
-      if (!booking) return reply.code(404).send({ error: 'Not Found' });
-      if (booking.userId !== req.user.sub) return reply.code(403).send({ error: 'Forbidden' });
-
-      const updated = await fastify.prisma.booking.update({
-        where: { id },
-        data: { rating, review, reviewedAt: new Date() },
-      });
-
-      return reply.send({ data: updated });
-    },
-  });
-
   return fastify;
 }
 
