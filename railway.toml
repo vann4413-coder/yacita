@@ -1,6 +1,6 @@
 [build]
 builder = "nixpacks"
-buildCommand = "NODE_ENV=development pnpm install --no-frozen-lockfile && pnpm --filter './packages/**' build && cd apps/api && npx prisma generate && rm -rf dist && npx tsc -p tsconfig.json --skipLibCheck && grep -q 'review' dist/routes/bookings.js && echo 'BUILD OK: review route compiled'"
+buildCommand = "NODE_ENV=development pnpm install --no-frozen-lockfile && cd packages/types && npx tsc -p tsconfig.json && cd ../utils && npx tsc -p tsconfig.json && cd ../../apps/api && npx prisma generate && rm -rf dist && npx tsc -p tsconfig.json --skipLibCheck && grep -q 'review' dist/routes/bookings.js && echo 'BUILD OK: review route compiled'"
 
 [deploy]
 startCommand = "node apps/api/dist/server.js"
