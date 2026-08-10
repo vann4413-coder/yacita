@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Stack } from 'expo-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
@@ -6,10 +6,9 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { useAuthStore } from '../store/auth';
-import { useNotifications } from '../hooks/useNotifications';
 import { colors } from '@yacita/ui';
 
-SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,15 +16,11 @@ const queryClient = new QueryClient({
   },
 });
 
-function NotificationSetup() {
-  useNotifications();
-  return null;
-}
-
 export default function RootLayout() {
   const hydrate = useAuthStore((s) => s.hydrate);
+  const [ready, setReady] = useState(false);
 
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, fontError] = useFonts({
     PlusJakartaSans: require('../assets/fonts/PlusJakartaSans-Regular.ttf'),
     'PlusJakartaSans-SemiBold': require('../assets/fonts/PlusJakartaSans-SemiBold.ttf'),
     'PlusJakartaSans-Bold': require('../assets/fonts/PlusJakartaSans-Bold.ttf'),
@@ -35,16 +30,30 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    hydrate().then(() => {
-      if (fontsLoaded) SplashScreen.hideAsync();
-    });
-  }, [fontsLoaded]);
+    async function prepare() {
+      try {
+        await hydrate();
+      } catch (e) {
+        // Si falla la hidratación, continuamos igualmente
+        console.warn('hydrate failed', e);
+      } finally {
+        setReady(true);
+      }
+    }
+    prepare();
+  }, []);
 
-  if (!fontsLoaded) return null;
+  useEffect(() => {
+    if ((fontsLoaded || fontError) && ready) {
+      SplashScreen.hideAsync().catch(() => {});
+    }
+  }, [fontsLoaded, fontError, ready]);
+
+  // Esperamos a fuentes Y a que termine la hidratación
+  if ((!fontsLoaded && !fontError) || !ready) return null;
 
   return (
     <QueryClientProvider client={queryClient}>
-      <NotificationSetup />
       <StatusBar style="light" backgroundColor={colors.bgDark} />
       <Stack
         screenOptions={{
