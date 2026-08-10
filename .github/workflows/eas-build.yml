@@ -6,7 +6,7 @@ on:
       profile:
         description: 'Build profile'
         required: true
-        default: 'production'
+        default: 'preview'
 
 jobs:
   build:
@@ -27,7 +27,7 @@ jobs:
           version: 9
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Setup EAS
         uses: expo/expo-github-action@v8
