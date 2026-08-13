@@ -3,6 +3,7 @@ import { Text, View, ScrollView } from 'react-native';
 import { Stack } from 'expo-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
+import { useFonts } from 'expo-font';
 
 import { useAuthStore } from '../store/auth';
 
@@ -28,11 +29,8 @@ class ErrorBoundary extends React.Component<
     if (this.state.error) {
       return (
         <ScrollView style={{ flex: 1, backgroundColor: '#fff', padding: 20, paddingTop: 80 }}>
-          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#c00', marginBottom: 12 }}>
-            Error:
-          </Text>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#c00', marginBottom: 12 }}>Error:</Text>
           <Text style={{ fontSize: 14, color: '#000' }}>{this.state.error.message}</Text>
-          <Text style={{ fontSize: 11, color: '#666', marginTop: 20 }}>{this.state.error.stack}</Text>
         </ScrollView>
       );
     }
@@ -44,6 +42,16 @@ function AppContent() {
   const hydrate = useAuthStore((s) => s.hydrate);
   const [ready, setReady] = useState(false);
 
+  // Cargar fuentes reales; si fallan, fontError permite continuar igual
+  const [fontsLoaded, fontError] = useFonts({
+    PlusJakartaSans: require('../assets/fonts/PlusJakartaSans-Regular.ttf'),
+    'PlusJakartaSans-SemiBold': require('../assets/fonts/PlusJakartaSans-SemiBold.ttf'),
+    'PlusJakartaSans-Bold': require('../assets/fonts/PlusJakartaSans-Bold.ttf'),
+    Inter: require('../assets/fonts/Inter-Regular.ttf'),
+    'Inter-Medium': require('../assets/fonts/Inter-Medium.ttf'),
+    'Inter-SemiBold': require('../assets/fonts/Inter-SemiBold.ttf'),
+  });
+
   useEffect(() => {
     async function prepare() {
       try { await hydrate(); } catch (e) { console.warn(e); }
@@ -52,7 +60,10 @@ function AppContent() {
     prepare();
   }, []);
 
-  if (!ready) {
+  // Continuar cuando: (fuentes cargadas O fallaron) Y hidratación lista
+  const canRender = (fontsLoaded || fontError) && ready;
+
+  if (!canRender) {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: GREEN }}>
         <Text style={{ color: '#fff', fontSize: 16 }}>Cargando Yacita...</Text>
