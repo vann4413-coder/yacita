@@ -3,18 +3,15 @@
     "name": "Yacita",
     "slug": "yacita-health",
     "version": "1.0.0",
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "yacita",
     "userInterfaceStyle": "light",
-    "primaryColor": "#1D9E75",
+    "primaryColor": "#1B4332",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#064033"
+      "backgroundColor": "#1B4332"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -36,7 +33,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#064033"
+        "backgroundColor": "#1B4332"
       },
       "package": "es.yacita.app",
       "versionCode": 1,
@@ -84,10 +81,7 @@
       }
     },
     "updates": {
-      "url": "https://u.expo.dev/029f444b-ba6c-4a9b-a865-afb0ef501d4e",
-      "enabled": true,
-      "checkAutomatically": "ON_LOAD",
-      "fallbackToCacheTimeout": 0
+      "enabled": false
     },
     "owner": "yacita-health"
   }
