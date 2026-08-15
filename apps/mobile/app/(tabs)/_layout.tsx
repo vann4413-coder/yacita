@@ -65,6 +65,14 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
+        name="search"
+        options={{
+          title: 'Buscar',
+          tabBarIcon: ({ focused }) => <TabIcon name="search" focused={focused} />,
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
         name="bookings"
         options={{
           title: 'Mis citas',
