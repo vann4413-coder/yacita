@@ -58,10 +58,14 @@ function AppContent() {
       finally { setReady(true); }
     }
     prepare();
+    // Salvavidas: si algo se cuelga (fuentes, hidratacion), forzamos continuar tras 4s
+    const timeout = setTimeout(() => setReady(true), 4000);
+    return () => clearTimeout(timeout);
   }, []);
 
   // Continuar cuando: (fuentes cargadas O fallaron) Y hidratación lista
-  const canRender = (fontsLoaded || fontError) && ready;
+  // (fontsLoaded/fontError tambien tienen su propio timeout de seguridad mas abajo)
+  const canRender = ready;
 
   if (!canRender) {
     return (
