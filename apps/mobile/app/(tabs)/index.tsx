@@ -21,6 +21,7 @@ type Filter = ServiceType | 'TODO';
 export default function HomeScreen() {
   const [filter, setFilter] = useState<Filter>('TODO');
   const [urgentOnly, setUrgentOnly] = useState(false);
+  const [search, setSearch] = useState('');
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [locationLabel, setLocationLabel] = useState<string | undefined>(undefined);
 
@@ -61,6 +62,13 @@ export default function HomeScreen() {
       return diffMs > 0 && diffMs < 4 * 60 * 60 * 1000; // próximas 4h
     });
   }
+  if (search.trim()) {
+    const q = search.trim().toLowerCase();
+    gaps = gaps.filter(
+      (g: { clinic: { name: string }; service: string }) =>
+        g.clinic.name.toLowerCase().includes(q) || g.service.toLowerCase().includes(q),
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -70,6 +78,8 @@ export default function HomeScreen() {
         urgentOnly={urgentOnly}
         onToggleUrgent={() => setUrgentOnly((v) => !v)}
         locationLabel={locationLabel}
+        searchValue={search}
+        onChangeSearch={setSearch}
       />
 
       {isLoading ? (

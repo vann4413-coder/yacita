@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 import { colors, radius, spacing, fontSize, fontFamily } from '@yacita/ui';
 import type { ServiceType } from '@yacita/types';
 
@@ -20,6 +21,8 @@ interface HomeHeaderProps {
   urgentOnly: boolean;
   onToggleUrgent: () => void;
   locationLabel?: string;
+  searchValue: string;
+  onChangeSearch: (v: string) => void;
 }
 
 export function HomeHeader({
@@ -28,6 +31,8 @@ export function HomeHeader({
   urgentOnly,
   onToggleUrgent,
   locationLabel,
+  searchValue,
+  onChangeSearch,
 }: HomeHeaderProps) {
   const filters: Filter[] = ['TODO', 'FISIO', 'MASAJE', 'QUIRO', 'OSTEO'];
 
@@ -39,11 +44,21 @@ export function HomeHeader({
           <Text style={styles.logoYa}>ya</Text>
           <Text style={styles.logoCita}>cita</Text>
         </Text>
-        {locationLabel ? (
-          <View style={styles.locationPill}>
-            <Text style={styles.locationText}>📍 {locationLabel}</Text>
-          </View>
-        ) : null}
+        <View style={styles.locationPill}>
+          <Text style={styles.locationText}>📍 {locationLabel ?? 'Ubicación'}</Text>
+        </View>
+      </View>
+
+      {/* Buscador */}
+      <View style={styles.searchBar}>
+        <Ionicons name="search" size={16} color={colors.gray400} />
+        <TextInput
+          style={styles.searchInput}
+          value={searchValue}
+          onChangeText={onChangeSearch}
+          placeholder="Buscar profesional o servicio…"
+          placeholderTextColor={colors.gray400}
+        />
       </View>
 
       {/* Chips: urgencia + filtros de servicio */}
@@ -57,7 +72,9 @@ export function HomeHeader({
           activeOpacity={0.8}
           style={[styles.chip, styles.chipUrgent, urgentOnly && styles.chipUrgentActive]}
         >
-          <Text style={styles.chipUrgentText}>⚡ Ahora mismo</Text>
+          <Text style={[styles.chipUrgentText, urgentOnly && styles.chipUrgentTextActive]}>
+            ⚡ Ahora mismo
+          </Text>
         </TouchableOpacity>
 
         {filters.map((f) => (
@@ -82,6 +99,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderBottomWidth: 1,
     borderBottomColor: '#F0F0F0',
+    paddingBottom: spacing.sm,
   },
   topRow: {
     flexDirection: 'row',
@@ -91,14 +109,16 @@ const styles = StyleSheet.create({
     paddingTop: spacing.xs,
     paddingBottom: spacing.sm,
   },
-  logo: { fontFamily: fontFamily.heading, fontSize: 22, fontWeight: '800' },
+  logo: { fontFamily: fontFamily.heading, fontSize: 24, fontWeight: '800' },
   logoYa: { color: colors.primary },
   logoCita: { color: colors.cta },
   locationPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: colors.bgSoft,
     borderRadius: radius.pill,
     paddingHorizontal: 10,
-    paddingVertical: 4,
+    paddingVertical: 5,
     borderWidth: 1,
     borderColor: '#E8E8E8',
   },
@@ -108,14 +128,35 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontWeight: '600',
   },
+
+  searchBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    backgroundColor: colors.bgSoft,
+    borderRadius: radius.pill,
+    marginHorizontal: spacing.md,
+    paddingHorizontal: 14,
+    paddingVertical: 11,
+    borderWidth: 1,
+    borderColor: '#EEEEEE',
+    marginBottom: spacing.sm,
+  },
+  searchInput: {
+    flex: 1,
+    fontFamily: fontFamily.body,
+    fontSize: fontSize.sm,
+    color: colors.text,
+    padding: 0,
+  },
+
   chipsRow: {
     paddingHorizontal: spacing.md,
     gap: 8,
-    paddingBottom: spacing.sm,
   },
   chip: {
     paddingHorizontal: 14,
-    paddingVertical: 7,
+    paddingVertical: 8,
     borderRadius: radius.pill,
     backgroundColor: colors.bgSoft,
     borderWidth: 1,
@@ -146,4 +187,5 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontWeight: '700',
   },
+  chipUrgentTextActive: { color: colors.white },
 });
