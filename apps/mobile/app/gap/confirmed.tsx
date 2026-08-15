@@ -11,7 +11,7 @@ export default function ConfirmedScreen() {
 
   async function handleShare() {
     await Share.share({
-      message: 'Acabo de reservar una cita con descuento en Yacita. ¡Descárgalo en yacita.es!',
+      message: 'Acabo de reservar una cita con descuento en Yacita. ¡Descárgalo en yacita.health!',
     });
   }
 

@@ -9,7 +9,7 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<Variant, { bg: string; text: string }> = {
-  urgent:   { bg: colors.cta,     text: colors.white },
+  urgent:   { bg: colors.flash,   text: colors.primary },
   discount: { bg: colors.primary, text: colors.white },
   service:  { bg: colors.bgSoft,  text: colors.primary },
   status:   { bg: colors.gray200, text: colors.gray600 },
