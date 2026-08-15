@@ -13,22 +13,35 @@ import { useFocusEffect } from 'expo-router';
 import { colors, spacing, fontSize, fontFamily } from '@yacita/ui';
 import { useGaps } from '../../hooks/useGaps';
 import { GapCard } from '../../components/GapCard';
-import { ServiceFilterBar } from '../../components/ServiceChip';
+import { HomeHeader } from '../../components/HomeHeader';
 import type { ServiceType } from '@yacita/types';
 
 type Filter = ServiceType | 'TODO';
 
 export default function HomeScreen() {
   const [filter, setFilter] = useState<Filter>('TODO');
+  const [urgentOnly, setUrgentOnly] = useState(false);
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [locationLabel, setLocationLabel] = useState<string | undefined>(undefined);
 
-  // Pedir permisos de ubicación al entrar en la pantalla
   useFocusEffect(
     useCallback(() => {
       Location.requestForegroundPermissionsAsync().then(({ status }) => {
         if (status === 'granted') {
           Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced }).then(
-            (pos) => setCoords({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+            async (pos) => {
+              setCoords({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+              try {
+                const places = await Location.reverseGeocodeAsync({
+                  latitude: pos.coords.latitude,
+                  longitude: pos.coords.longitude,
+                });
+                const place = places[0];
+                if (place) setLocationLabel(place.district || place.city || place.region);
+              } catch {
+                // sin etiqueta si falla el reverse geocode
+              }
+            },
           );
         }
       });
@@ -41,11 +54,23 @@ export default function HomeScreen() {
     limit: 20,
   });
 
-  const gaps = data?.data ?? [];
+  let gaps = data?.data ?? [];
+  if (urgentOnly) {
+    gaps = gaps.filter((g: { datetime: string }) => {
+      const diffMs = new Date(g.datetime).getTime() - Date.now();
+      return diffMs > 0 && diffMs < 4 * 60 * 60 * 1000; // próximas 4h
+    });
+  }
 
   return (
     <View style={styles.container}>
-      <ServiceFilterBar selected={filter} onChange={setFilter} />
+      <HomeHeader
+        selected={filter}
+        onChangeFilter={setFilter}
+        urgentOnly={urgentOnly}
+        onToggleUrgent={() => setUrgentOnly((v) => !v)}
+        locationLabel={locationLabel}
+      />
 
       {isLoading ? (
         <View style={styles.center}>
@@ -63,7 +88,20 @@ export default function HomeScreen() {
         <FlatList
           data={gaps}
           keyExtractor={(g) => g.id}
-          renderItem={({ item }) => <GapCard gap={item} />}
+          renderItem={({ item, index }) => (
+            <>
+              {index === 0 && (
+                <View style={styles.sectionHeader}>
+                  <View style={styles.sectionTitleRow}>
+                    <View style={styles.sectionDot} />
+                    <Text style={styles.sectionTitle}>Acaban de liberarse</Text>
+                  </View>
+                  <Text style={styles.sectionCount}>{gaps.length} cerca de ti</Text>
+                </View>
+              )}
+              <GapCard gap={item} />
+            </>
+          )}
           contentContainerStyle={styles.list}
           showsVerticalScrollIndicator={false}
           refreshControl={
@@ -107,5 +145,30 @@ const styles = StyleSheet.create({
     color: colors.gray400,
     textAlign: 'center',
     marginTop: spacing.sm,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: spacing.md,
+    marginBottom: spacing.sm,
+  },
+  sectionTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  sectionDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+    backgroundColor: colors.turquoise,
+  },
+  sectionTitle: {
+    fontFamily: fontFamily.heading,
+    fontSize: fontSize.md,
+    color: colors.primary,
+    fontWeight: '800',
+  },
+  sectionCount: {
+    fontFamily: fontFamily.body,
+    fontSize: fontSize.xs,
+    color: colors.gray400,
   },
 });

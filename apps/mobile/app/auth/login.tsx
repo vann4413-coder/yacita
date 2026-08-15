@@ -32,7 +32,10 @@ export default function LoginScreen() {
     <SafeAreaView style={styles.safe}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.logo}>Yacita</Text>
+          <Text style={styles.logo}>
+            <Text style={styles.logoYa}>ya</Text>
+            <Text style={styles.logoCita}>cita</Text>
+          </Text>
           <Text style={styles.tagline}>Citas de última hora con descuento</Text>
         </View>
 
@@ -84,8 +87,10 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: colors.bgDark },
   container: { flex: 1, justifyContent: 'center', paddingHorizontal: spacing.xl },
   header: { alignItems: 'center', marginBottom: spacing.xxl },
-  logo: { fontFamily: fontFamily.heading, fontSize: fontSize.display, color: colors.white, fontWeight: '800' },
-  tagline: { fontFamily: fontFamily.body, fontSize: fontSize.base, color: '#79C8C5', marginTop: spacing.xs },
+  logo: { fontFamily: fontFamily.heading, fontSize: fontSize.display, fontWeight: '800' },
+  logoYa: { color: colors.white },
+  logoCita: { color: colors.cta },
+  tagline: { fontFamily: fontFamily.body, fontSize: fontSize.base, color: colors.turquoise, marginTop: spacing.xs },
   form: { backgroundColor: colors.white, borderRadius: radius.modal, padding: spacing.xl },
   label: { fontFamily: fontFamily.body, fontSize: fontSize.sm, color: colors.gray600, fontWeight: '600', marginBottom: 6 },
   input: {
