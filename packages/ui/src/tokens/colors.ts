@@ -3,7 +3,7 @@ export const colors = {
   turquoise: '#79C8C5',
   cta:       '#F47E36',
   flash:     '#FFD166',
-  text:      '#1B4332',
+  text:      '#1a1a1a',
   bgSoft:    '#F7F7F7',
   bgDark:    '#1B4332',
   white:     '#FFFFFF',
